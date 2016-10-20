@@ -2,7 +2,7 @@
 
 // Disable Storefront CSS
 function godspeed_remove_storefront_style() {
-    wp_dequeue_style( 'storefront-style' );
+    //wp_dequeue_style( 'storefront-style' );
     //wp_dequeue_style( 'storefront-woocommerce-style' );
 }
 add_action( 'wp_enqueue_scripts', 'godspeed_remove_storefront_style', 999 );
