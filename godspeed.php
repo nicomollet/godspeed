@@ -58,9 +58,9 @@ final class godspeed_optimizations {
         if ( class_exists( 'Theme_My_Login' ) ) {// Theme My Login custom titles and custom pages
             //require_once( 'inc/plugins/thememylogin.php');
         }
-        if (current_theme_supports('woocommerce')) {// Woocommerce custom titles and custom pages
+        //if (current_theme_supports('woocommerce')) {// Woocommerce custom titles and custom pages
             require_once( 'inc/plugins/woocommerce.php');
-        }
+        //}
         if (class_exists( 'JetPack' )) {// Jetpack cleanup
             require_once( 'inc/plugins/jetpack.php');
         }
