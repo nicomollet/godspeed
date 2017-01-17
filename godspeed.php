@@ -105,22 +105,31 @@ function godspeed_optimizations_main() {
  */
 add_action( 'plugins_loaded', 'godspeed_optimizations_main' );
 
-// Recursive array search
-function recursive_array_search( $needle, $haystack )
-{
-    foreach( $haystack as $key => $value )
+if(!function_exists('recursive_array_search')):
+    /**
+     * Recursive array search
+     *
+     * @param $needle
+     * @param $haystack
+     *
+     * @return bool|int|string
+     */
+    function recursive_array_search( $needle, $haystack )
     {
-        $current_key = $key;
-        if(
-            $needle === $value
-            OR (
-                is_array( $value )
-                && recursive_array_search( $needle, $value ) !== false
-            )
-        )
+        foreach( $haystack as $key => $value )
         {
-            return $current_key;
+            $current_key = $key;
+            if(
+                $needle === $value
+                OR (
+                    is_array( $value )
+                    && recursive_array_search( $needle, $value ) !== false
+                )
+            )
+            {
+                return $current_key;
+            }
         }
+        return false;
     }
-    return false;
-}
+endif;
