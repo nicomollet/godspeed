@@ -3,11 +3,11 @@
  * Plugin Name:       Godspeed optimizations
  * Description:       A handy little plugin to contain your theme customisation snippets.
  * Plugin URI:        http://github.com/nicomollet/godspeed
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
  * Requires at least: 3.0.0
- * Tested up to:      4.4.2
+ * Tested up to:      4.7.1
  *
  * @package godspeed_optimizations
  */
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Main godspeed_optimizations Class
  *
  * @class godspeed_optimizations
- * @version	1.0.0
+ * @version	1.0.1
  * @since 1.0.0
  * @package	godspeed_optimizations
  */
@@ -33,28 +33,19 @@ final class godspeed_optimizations {
 
         require_once( 'inc/front/support.php');
         require_once( 'inc/plugins/jetpack.php');
-        require_once( 'inc/front/thumbnails.php');       // Thumbnails for Bootstrap
-        require_once( 'inc/admin/customizer.php');       // Customizer
-        require_once( 'inc/front/owlcarousel.php');    // Load OwlCarousel shortcode
 
         // Admin only
         if ( is_admin() ) {
             require_once( 'inc/admin/cleanup.php');        // Clean admin
             require_once( 'inc/admin/humility.php');       // Menu Humility: reorders admin menus
+            require_once( 'inc/admin/profile.php');        // Profile fields
         }
 
         // Front only
         if ( ! is_admin() ) {
-            require_once( 'inc/front/carousel.php');       // Load Carousel shortcode
             require_once( 'inc/front/cleanup.php');        // Cleanup frontend
-            require_once( 'inc/front/bodyclass.php');      // Body classes
             require_once( 'inc/front/favicon.php');        // Favicon
-            require_once( 'inc/front/webfonts.php');
-            require_once( 'inc/front/addthis.php');
-            require_once( 'inc/front/shortcodes.php');     // Shortcodes for Bootstrap: alert, badge, label, button, gallery
             require_once( 'inc/front/widgets.php');        // Widgets cleanup
-            require_once( 'inc/front/styles.php');
-            require_once( 'inc/front/scripts.php');
         }
 
         // Plugins
@@ -88,6 +79,11 @@ final class godspeed_optimizations {
         if (class_exists( 'SearchAutocomplete' )) {// Searchautocomplete cleanup
             require_once( 'inc/plugins/searchautocomplete.php');
         }
+
+        if (function_exists( 'custom_post_widget_plugin_init' )) {// Custom Post Widget compatibility
+            require_once( 'inc/plugins/custompostwidget.php');
+        }
+
         if (class_exists( 'WP_Mailjet_Api' )) {// Mailjet cleanup
             require_once( 'inc/plugins/mailjet.php');
         }
@@ -108,3 +104,23 @@ function godspeed_optimizations_main() {
  * Initialise the plugin
  */
 add_action( 'plugins_loaded', 'godspeed_optimizations_main' );
+
+// Recursive array search
+function recursive_array_search( $needle, $haystack )
+{
+    foreach( $haystack as $key => $value )
+    {
+        $current_key = $key;
+        if(
+            $needle === $value
+            OR (
+                is_array( $value )
+                && recursive_array_search( $needle, $value ) !== false
+            )
+        )
+        {
+            return $current_key;
+        }
+    }
+    return false;
+}
