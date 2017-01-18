@@ -17,7 +17,7 @@ function godspeed_w3tc_menu_icon(){
 }
 add_action( 'admin_head', 'godspeed_w3tc_menu_icon',30 );
 
-if ( ! defined( 'WP_ROCKET_VERSION' ) ):
+if ( defined( 'WP_ROCKET_VERSION' ) ):
     // WP Rocket defered scripts are too low in the wp_footer queue
     add_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', 20 );
     remove_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', PHP_INT_MAX );
