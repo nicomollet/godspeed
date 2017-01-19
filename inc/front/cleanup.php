@@ -218,3 +218,12 @@ function godspeed_the_archive_title($title){
 add_filter( 'get_the_archive_title', 'godspeed_the_archive_title');
 
 
+// Disable comments on attachment pages
+function godspeed_media_comment_status( $open, $post_id ) {
+    $post = get_post( $post_id );
+    if( $post->post_type == 'attachment' ) {
+        return false;
+    }
+    return $open;
+}
+add_filter( 'comments_open', 'godspeed_media_comment_status', 10 , 2 );
