@@ -165,7 +165,7 @@ add_filter( 'embed_defaults', 'change_embed_size' );
 // Other
 
 function godspeed_viewport() {
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' . "\n";
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">' . "\n";
 }
 
 add_action( 'wp_head', 'godspeed_viewport', 1 );

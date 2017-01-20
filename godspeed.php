@@ -39,6 +39,7 @@ final class godspeed_optimizations {
             require_once( 'inc/admin/cleanup.php');        // Clean admin
             require_once( 'inc/admin/humility.php');       // Menu Humility: reorders admin menus
             require_once( 'inc/admin/profile.php');        // Profile fields
+            require_once( 'inc/admin/htmleditor.php');     // HTML Editor
         }
 
         // Front only

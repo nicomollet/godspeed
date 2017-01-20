@@ -24,8 +24,6 @@ function godspeed_remove_storefront_standard_functionality() {
 //add_action( 'init', 'godspeed_remove_storefront_standard_functionality' );
 
 
-/********************************************/
-
 
 // Woocommerce Shop Managers: redirect to orders
 function godspeed_woocommerce_redirect_shopmanagers( $redirect_to, $request, $user ) {
@@ -79,8 +77,8 @@ function godspeed_woocoomerce_rename_menu()
 
 
 // Put Woocommerce Javascript at the end of the footer
-remove_action('wp_footer', 'wc_print_js', 25);
-add_action('wp_footer', 'wc_print_js', PHP_INT_MAX);
+//remove_action('wp_footer', 'wc_print_js', 25);
+//add_action('wp_footer', 'wc_print_js', PHP_INT_MAX);
 
 // Remove Woocommerce styles
 define('WOOCOMMERCE_USE_CSS',false); // until Woocommerce 2.1
