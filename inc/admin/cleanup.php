@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Number of revisions
+ */
+if (!defined('WP_POST_REVISIONS')) {
+    define('WP_POST_REVISIONS', 5);
+
+}
+else{
+    print_r(WP_POST_REVISIONS);
+}
+
+/**
  * Remove unnecessary dashboard widgets
  */
 function godspeed_remove_dashboard_widgets()
