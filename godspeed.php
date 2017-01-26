@@ -45,7 +45,6 @@ final class godspeed_optimizations {
         // Front only
         if ( ! is_admin() ) {
             require_once( 'inc/front/cleanup.php');        // Cleanup frontend
-            require_once( 'inc/front/favicon.php');        // Favicon
             require_once( 'inc/front/widgets.php');        // Widgets cleanup
         }
 
@@ -73,6 +72,9 @@ final class godspeed_optimizations {
         }
         if (class_exists( 'WPSEO_Admin' )) {// SEO cleanup
             require_once( 'inc/plugins/seo.php');
+        }
+        if (defined( 'GTM4WP_VERSION' )) {// GTM 4 WP
+            require_once( 'inc/plugins/gtm4wp.php');
         }
 
         require_once( 'inc/plugins/performance.php');

@@ -1,6 +1,8 @@
 <?php
 
-// Menu icon for Backwpup
+/**
+ * Menu icon for Backwpup
+ */
 function backwpup_menu_icon(){
 
 	print '<style type="text/css">';
@@ -12,3 +14,21 @@ function backwpup_menu_icon(){
 	print '</style>';
 }
 add_action( 'admin_head', 'backwpup_menu_icon',30 );
+
+/*
+ * Rename BackWPup menu
+ */
+function godspeed_backwpup_rename_menu()
+{
+    global $menu;
+
+    // Pinpoint menu item
+    $backwpup = recursive_array_search( 'BackWPup', $menu );
+
+    // Validate
+    if( !$backwpup )
+        return;
+
+    $menu[$backwpup][0] = __('Backups', 'backwpup');
+}
+add_action( 'admin_menu', 'godspeed_backwpup_rename_menu', 999 );
