@@ -1,12 +1,14 @@
 <?php
 
 
-// Disable Storefront CSS
+/**
+ * Disable Storefront CSS
+ */
 function godspeed_remove_storefront_style() {
     //wp_dequeue_style( 'storefront-style' );
     //wp_dequeue_style( 'storefront-woocommerce-style' );
 }
-add_action( 'wp_enqueue_scripts', 'godspeed_remove_storefront_style', 999 );
+//add_action( 'wp_enqueue_scripts', 'godspeed_remove_storefront_style', 999 );
 
 // Disable Storefront customizer inline CSS
 //add_filter('storefront_customizer_css', '__return_false');
@@ -15,17 +17,22 @@ add_action( 'wp_enqueue_scripts', 'godspeed_remove_storefront_style', 999 );
 function godspeed_remove_storefront_standard_functionality() {
     set_theme_mod('storefront_styles', '');
     set_theme_mod('storefront_woocommerce_styles', '');
-
     remove_theme_support( 'custom-background');
 }
 
 //add_filter( 'storefront_custom_background_args', '__return_false' );
-
 //add_action( 'init', 'godspeed_remove_storefront_standard_functionality' );
 
 
-
-// Woocommerce Shop Managers: redirect to orders
+/**
+ * Woocommerce Shop Managers: redirect to orders
+ *
+ * @param $redirect_to
+ * @param $request
+ * @param $user
+ *
+ * @return string|void
+ */
 function godspeed_woocommerce_redirect_shopmanagers( $redirect_to, $request, $user ) {
 
     $redirect_to_orders = admin_url( 'edit.php?post_type=shop_order');
@@ -49,31 +56,32 @@ function godspeed_woocommerce_redirect_shopmanagers( $redirect_to, $request, $us
 add_filter( 'login_redirect', 'godspeed_woocommerce_redirect_shopmanagers', 10, 3 );
 
 
-
-// Menu icon for Woocommerce
-add_action( 'admin_head', 'godspeed_woocommerce_menu_icon',40 );
+/**
+ * Menu icon for Woocommerce
+ */
 function godspeed_woocommerce_menu_icon(){
 
     print '<style type="text/css">';
     print '#adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image:before{content: "\f174" !important;font-family: "dashicons" !important;}';
+    print '#adminmenu #menu-posts-product .menu-icon-product div.wp-menu-image:before{content: "\f312" !important;font-family: "dashicons" !important;}';
     print '</style>';
 }
+add_action( 'admin_head', 'godspeed_woocommerce_menu_icon',40 );
 
-// Rename woocommerce menu
-add_action( 'admin_menu', 'godspeed_woocoomerce_rename_menu', 999 );
+/**
+ * Rename woocommerce menu
+ */
 function godspeed_woocoomerce_rename_menu()
 {
     global $menu;
-
     // Pinpoint menu item
     $woo = recursive_array_search( 'WooCommerce', $menu );
-
     // Validate
     if( !$woo )
         return;
-
     $menu[$woo][0] = __('Orders', 'woocommerce');
 }
+add_action( 'admin_menu', 'godspeed_woocoomerce_rename_menu', 999 );
 
 
 // Put Woocommerce Javascript at the end of the footer
@@ -84,25 +92,27 @@ function godspeed_woocoomerce_rename_menu()
 define('WOOCOMMERCE_USE_CSS',false); // until Woocommerce 2.1
 add_filter( 'woocommerce_enqueue_styles', '__return_false' ); // after Woocommerce 2.1
 
-add_action( 'init', 'godspeed_remove_storefront_breadcrumb' );
+/**
+ * Remove Woocommerce Breadcrumb on Storefront
+ */
 function godspeed_remove_storefront_breadcrumb() {
     remove_action( 'storefront_content_top', 'woocommerce_breadcrumb', 	10 );
     add_action( 'storefront_content_top','godspeed_add_yoast_breadcrumb', 10, 0);
 }
 
+/**
+ * Add Woocommerce Breadcrumb on Storefront
+ */
 function godspeed_add_yoast_breadcrumb()
 {
     if (function_exists('yoast_breadcrumb') && ! is_front_page()) {
         yoast_breadcrumb('<nav class="breadcrumbs woocommerce-breadcrumb">', '</nav>');
     }
 }
+add_action( 'init', 'godspeed_remove_storefront_breadcrumb' );
 
-
-// Remove Woocommerce footer credit
-add_action( 'init', 'godspeed_remove_footer_credit', 10 );
-
+// Remove Woocommerce footer credit on Storefront
 function godspeed_remove_footer_credit () {
     remove_action( 'storefront_footer', 'storefront_credit', 20 );
 }
-
-
+add_action( 'init', 'godspeed_remove_footer_credit', 10 );
