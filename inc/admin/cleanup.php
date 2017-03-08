@@ -4,11 +4,8 @@
  * Number of revisions
  */
 if (!defined('WP_POST_REVISIONS')) {
-    define('WP_POST_REVISIONS', 5);
+    define('WP_POST_REVISIONS', 3);
 
-}
-else{
-    print_r(WP_POST_REVISIONS);
 }
 
 /**
