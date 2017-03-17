@@ -3,11 +3,11 @@
  * Plugin Name:       Godspeed optimizations
  * Description:       A handy little plugin to contain your theme customisation snippets.
  * Plugin URI:        http://github.com/nicomollet/godspeed
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
  * Requires at least: 3.0.0
- * Tested up to:      4.7.1
+ * Tested up to:      4.7.3
  *
  * @package godspeed_optimizations
  */
