@@ -18,14 +18,23 @@ function godspeed_w3tc_menu_icon(){
 add_action( 'admin_head', 'godspeed_w3tc_menu_icon',30 );
 
 if ( defined( 'WP_ROCKET_VERSION' ) ):
-    // WP Rocket defered scripts are too low in the wp_footer queue
-    add_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', 20 );
-    remove_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', PHP_INT_MAX );
 
-	add_filter( 'get_rocket_option_wl_plugin_name', 'godspeed_rocket_name' );
+	/**
+	 * WP Rocket defered scripts are too low in the wp_footer queue
+	 */
+	function godspeed_rocket_footer() {
+		remove_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', PHP_INT_MAX );
+		add_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', 20 );
+	}
+	add_action( 'after_setup_theme', 'godspeed_rocket_footer', 0 );
+
+	/**
+	 * @return string
+	 */
 	function godspeed_rocket_name(){
 		return __( 'Cache', 'godspeed' );
 	}
+	add_filter( 'get_rocket_option_wl_plugin_name', 'godspeed_rocket_name' );
 
 
 endif;

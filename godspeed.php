@@ -90,6 +90,8 @@ final class godspeed_optimizations {
         if (class_exists( 'WP_Mailjet_Api' )) {// Mailjet cleanup
             require_once( 'inc/plugins/mailjet.php');
         }
+
+	    require_once( 'inc/library/wp-simple-asset-optimizer/wp-simple-asset-optimizer.php' );
     }
 
 } // End Class
