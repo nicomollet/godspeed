@@ -92,6 +92,23 @@ final class godspeed_optimizations {
         }
 
 	    require_once( 'inc/library/wp-simple-asset-optimizer/wp-simple-asset-optimizer.php' );
+	    add_filter( 'wpsao_move', function () {
+		    return array(
+			    'jquery',
+			    'jquery-migrate',
+			    'jquery-core',
+			    'jquery_json',
+			    'gform_json',
+			    'bootstrap',
+			    'gform_placeholder',
+			    'gform_gravityforms',
+			    'gform_conditional_logic',
+			    //'optin-monster-api-script',
+			    //'wp-mediaelement',
+			    //'visualizer-google-jsapi',
+			    //'visualizer-render'
+		    );
+	    } );
     }
 
 } // End Class

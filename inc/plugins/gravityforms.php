@@ -363,16 +363,3 @@ function godspeed_body_class_useractivation($classes = '') {
 
 }
 
-add_filter( 'wpsao_move', function () {
-	return array(
-		'jquery_json',
-		'bootstrap',
-		'gform_placeholder',
-		'gform_gravityforms',
-		'gform_conditional_logic',
-		'optin-monster-api-script',
-		'wp-mediaelement',
-		'visualizer-google-jsapi',
-		'visualizer-render'
-	);
-} );
