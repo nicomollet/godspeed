@@ -25,38 +25,6 @@ function godspeed_remove_storefront_standard_functionality() {
 
 
 /**
- * Woocommerce Shop Managers: redirect to orders
- *
- * @param $redirect_to
- * @param $request
- * @param $user
- *
- * @return string|void
- */
-function godspeed_woocommerce_redirect_shopmanagers( $redirect_to, $request, $user ) {
-
-    $redirect_to_orders = admin_url( 'edit.php?post_type=shop_order');
-
-    //is there a user to check?
-    if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-        //check for admins
-        if ( in_array( 'administrator', $user->roles ) ) {
-            // redirect them to the default place
-            return $redirect_to;
-        } elseif ( in_array( 'shop_manager', $user->roles ) ) {
-            //Redirect shop managers to the orders page
-            return $redirect_to_orders;
-        } else {
-            return home_url();
-        }
-    } else {
-        return $redirect_to;
-    }
-}
-add_filter( 'login_redirect', 'godspeed_woocommerce_redirect_shopmanagers', 10, 3 );
-
-
-/**
  * Menu icon for Woocommerce
  */
 function godspeed_woocommerce_menu_icon(){
