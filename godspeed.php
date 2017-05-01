@@ -14,6 +14,7 @@
  * @package godspeed_optimizations
  */
 
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
