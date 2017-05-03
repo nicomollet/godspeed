@@ -24,32 +24,6 @@ function godspeed_remove_storefront_standard_functionality() {
 //add_action( 'init', 'godspeed_remove_storefront_standard_functionality' );
 
 
-/**
- * Menu icon for Woocommerce
- */
-function godspeed_woocommerce_menu_icon(){
-
-    print '<style type="text/css">';
-    print '#adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image:before{content: "\f174" !important;font-family: "dashicons" !important;}';
-    print '#adminmenu #menu-posts-product .menu-icon-product div.wp-menu-image:before{content: "\f312" !important;font-family: "dashicons" !important;}';
-    print '</style>';
-}
-add_action( 'admin_head', 'godspeed_woocommerce_menu_icon',40 );
-
-/**
- * Rename woocommerce menu
- */
-function godspeed_woocoomerce_rename_menu()
-{
-    global $menu;
-    // Pinpoint menu item
-    $woo = recursive_array_search( 'WooCommerce', $menu );
-    // Validate
-    if( !$woo )
-        return;
-    $menu[$woo][0] = __('Orders', 'woocommerce');
-}
-add_action( 'admin_menu', 'godspeed_woocoomerce_rename_menu', 999 );
 
 
 // Put Woocommerce Javascript at the end of the footer
