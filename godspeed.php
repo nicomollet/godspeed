@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name:       Godspeed optimizations
- * Description:       A handy little plugin to contain your theme customisation snippets.
+ * Description:       WordPress frontend and backend optimizations
  * Plugin URI:        http://github.com/nicomollet/godspeed
  * Github Plugin URI: http://github.com/nicomollet/godspeed
  * Github Branch:     master
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
  * Requires at least: 3.0.0
- * Tested up to:      4.7.3
+ * Tested up to:      4.7.4
  *
  * @package godspeed_optimizations
  */
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Main godspeed_optimizations Class
  *
  * @class godspeed_optimizations
- * @version	1.0.1
+ * @version	1.0.6
  * @since 1.0.0
  * @package	godspeed_optimizations
  */
