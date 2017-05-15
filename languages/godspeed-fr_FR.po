@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Godspeed\n"
+"POT-Creation-Date: 2017-05-15 10:42+0200\n"
+"PO-Revision-Date: 2017-05-15 10:49+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr_e\n"
+"Last-Translator: \n"
+"Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/admin/cleanup.php:45
+msgid "PDFs"
+msgstr "PDFs"
+
+#: inc/admin/cleanup.php:45
+msgid "Manage PDFs"
+msgstr "Gérer les PDFs"
+
+#: inc/front/cleanup.php:77
+msgid "Read&nbsp;more&hellip;"
+msgstr "Lire&nbsp;la&nbsp;suite&hellip;"
+
+#: inc/plugins/backwpup.php:32
+msgid "Backups"
+msgstr "Sauvegardes"
+
+#: inc/plugins/performance.php:37
+msgid "Cache"
+msgstr "Cache"

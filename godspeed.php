@@ -5,9 +5,11 @@
  * Plugin URI:        http://github.com/nicomollet/godspeed
  * Github Plugin URI: http://github.com/nicomollet/godspeed
  * Github Branch:     master
- * Version:           1.0.6
+ * Version:           1.0.7
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
+ * Text Domain:       bar
+ * Domain Path:       /languages
  * Requires at least: 3.0.0
  * Tested up to:      4.7.4
  *
@@ -23,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Main godspeed_optimizations Class
  *
  * @class godspeed_optimizations
- * @version	1.0.6
  * @since 1.0.0
  * @package	godspeed_optimizations
  */
@@ -94,6 +95,8 @@ final class godspeed_optimizations {
             require_once( 'inc/plugins/mailjet.php');
         }
 
+	    add_action( 'init', 'godspeed_load_textdomain' );
+
 	    require_once( 'inc/library/wp-simple-asset-optimizer/wp-simple-asset-optimizer.php' );
 	    add_filter( 'wpsao_move', function () {
 		    return array(
@@ -114,6 +117,8 @@ final class godspeed_optimizations {
 	    } );
     }
 
+
+
 } // End Class
 
 /**
@@ -123,6 +128,10 @@ final class godspeed_optimizations {
  */
 function godspeed_optimizations_main() {
     new godspeed_optimizations();
+}
+
+function godspeed_load_textdomain() {
+	load_plugin_textdomain( 'godspeed', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 
 /**
