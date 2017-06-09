@@ -52,10 +52,7 @@ final class godspeed_optimizations {
             require_once( 'inc/front/widgets.php');        // Widgets cleanup
         }
 
-        // Plugins
-        if ( class_exists( 'RGForms' ) ) {// Gravity Forms compatibility with Boostrap
-            //require_once( 'inc/plugins/gravityforms.php');
-        }
+
         if ( function_exists( 'icl_object_id' ) ) {// WPML switcher for Boostrap + cleanup styles
             require_once( 'inc/plugins/wpml.php');
         }
