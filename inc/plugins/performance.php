@@ -23,8 +23,8 @@ if ( defined( 'WP_ROCKET_VERSION' ) ):
 	 * WP Rocket defered scripts are too low in the wp_footer queue
 	 */
 	function godspeed_rocket_footer() {
-		remove_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', PHP_INT_MAX );
-		add_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', 20 );
+		//remove_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', PHP_INT_MAX );
+		//add_action( 'wp_footer', '__rocket_insert_minify_js_in_footer', 20 );
 		apply_filters( 'rocket_minify_debug', '__return_true' );
 	}
 	add_action( 'after_setup_theme', 'godspeed_rocket_footer', 0 );
