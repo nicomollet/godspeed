@@ -58,3 +58,5 @@ function godspeed_remove_footer_credit () {
     remove_action( 'storefront_footer', 'storefront_credit', 20 );
 }
 add_action( 'init', 'godspeed_remove_footer_credit', 10 );
+
+
