@@ -35,7 +35,6 @@ final class godspeed_optimizations {
      */
     public function __construct() {
 
-        require_once( 'inc/front/support.php');
         require_once( 'inc/plugins/jetpack.php');
 
         // Admin only

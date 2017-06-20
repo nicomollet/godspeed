@@ -16,7 +16,6 @@ function godspeed_head_cleanup() {
 	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 }
-
 add_action( 'init', 'godspeed_head_cleanup' );
 
 
@@ -77,30 +76,9 @@ function godspeed_more_link() {
 	return ' <span class="excerpt-more"><a href="' . get_permalink() . '">' . __( 'Read&nbsp;more&hellip;', 'godspeed' ) . '</a></span>';
 }
 
-// returns WordPress subdirectory if applicable
-function wp_base_dir() {
-	preg_match( '!(https?://[^/|"]+)([^"]+)?!', site_url(), $matches );
-	if ( count( $matches ) === 3 ) {
-		return end( $matches );
-	} else {
-		return '';
-	}
-}
 
-// opposite of built in WP functions for trailing slashes
-function leadingslashit( $string ) {
-	return '/' . unleadingslashit( $string );
-}
 
-function unleadingslashit( $string ) {
-	return ltrim( $string, '/' );
-}
 
-function add_filters( $tags, $function ) {
-	foreach ( $tags as $tag ) {
-		add_filter( $tag, $function );
-	}
-}
 
 function is_element_empty( $element ) {
 	$element = trim( $element );
