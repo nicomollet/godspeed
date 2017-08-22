@@ -61,9 +61,12 @@ function godspeed_get_extended_valid_elements() {
  */
 function godspeed_tinymce_init( $settings )
 {
-    if( !empty( $settings['extended_valid_elements'] ) ) {
-        $settings['extended_valid_elements'] .= ',';
-    }
+	if( !empty( $settings['extended_valid_elements'] ) ) {
+		$settings['extended_valid_elements'] .= ',';
+	}
+	else{
+		$settings['extended_valid_elements'] = '';
+	}
 
     $result = $settings['extended_valid_elements'];
 
