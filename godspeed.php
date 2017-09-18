@@ -5,7 +5,7 @@
  * Plugin URI:        http://github.com/nicomollet/godspeed
  * Github Plugin URI: http://github.com/nicomollet/godspeed
  * Github Branch:     master
- * Version:           1.0.7
+ * Version:           1.0.8
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
  * Text Domain:       bar
