@@ -12,11 +12,15 @@ function godspeed_gtm4wp_fix() {
 		add_filter('gtm4wp_event-downloads', '__return_true');
 		add_filter('gtm4wp_scroller-enabled', '__return_true');
 
-		remove_action( 'wp_footer', 'gtm4wp_wp_footer' );
-		add_action( 'wp_footer', 'gtm4wp_wp_footer', 999 );
+		if(function_exists('gtm4wp_wp_footer')){
+			remove_action( 'wp_footer', 'gtm4wp_wp_footer' );
+			add_action( 'wp_footer', 'gtm4wp_wp_footer', 999 );
+		}
 
-		remove_action( 'wp_footer', 'gtm4wp_woocommerce_wp_footer' );
-		add_action( 'wp_footer', 'gtm4wp_woocommerce_wp_footer',500 );
+		if(function_exists('gtm4wp_woocommerce_wp_footer')){
+			remove_action( 'wp_footer', 'gtm4wp_woocommerce_wp_footer' );
+			add_action( 'wp_footer', 'gtm4wp_woocommerce_wp_footer',500 );
+		}
 	}
 
 }
