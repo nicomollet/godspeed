@@ -19,8 +19,8 @@ function godspeed_remove_dashboard_widgets()
     remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
     // Remove  WordPress Welcome Panel
     remove_action('welcome_panel', 'wp_welcome_panel');
+	add_filter( 'jetpack_just_in_time_msgs', '__return_false', 11);
 }
-
 add_action('admin_init', 'godspeed_remove_dashboard_widgets');
 
 
