@@ -37,5 +37,7 @@ function godspeed_remove_footer_credit () {
 }
 add_action( 'init', 'godspeed_remove_footer_credit', 10 );
 
+// Remove WooCommerce Updater
+remove_action('admin_notices', 'woothemes_updater_notice');
 
 
