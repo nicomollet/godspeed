@@ -59,8 +59,7 @@ function godspeed_jetpack_dequeue_styles() {
 add_action( 'wp_enqueue_styles', 'godspeed_jetpack_dequeue_styles', 20 );
 
 // Disable Jetpack Tiled Galery JS
-function godspeed_kill_spin() {
-    wp_deregister_script( 'jquery.spin' );
-    wp_deregister_script( 'spin' );
+function godspeed_kill_jetpackcarousel() {
+	wp_deregister_script( 'jetpack-carousel' );
 }
-add_action( 'wp_loaded', 'godspeed_kill_spin', 11 );
+add_action( 'wp_loaded', 'godspeed_kill_jetpackcarousel', 11 );

@@ -5,13 +5,14 @@
  * Plugin URI:        http://github.com/nicomollet/godspeed
  * Github Plugin URI: http://github.com/nicomollet/godspeed
  * Github Branch:     master
- * Version:           1.0.8
+ * Version:           1.0.9
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet/
  * Text Domain:       bar
  * Domain Path:       /languages
  * Requires at least: 3.0.0
  * Tested up to:      4.7.4
+ * Requires PHP:      5.6
  *
  * @package godspeed_optimizations
  */
