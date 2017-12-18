@@ -1,8 +1,9 @@
 ### 1.0.9: December 15th, 2017
 * **Tweak** - Jetpack: Remove Carousel JS
+* **Tweak** - Jetpack: Remove just in time
 * **Tweak** - WooCommerce: Remove Updater notices
 * **Tweak** - WooCommerce: Remove Updater
-* **Tweak** - Jetpack: Remove just in time
+* **Tweak** - Plugin info: PHP version required
 
 ### 1.0.8: September 18th, 2017
 * **Fix** - PHP errors
